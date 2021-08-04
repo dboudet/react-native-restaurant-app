@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "react-native-restaurant",
+    "slug": "react-native-restaurant",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "react-native-restaurant"
+}
