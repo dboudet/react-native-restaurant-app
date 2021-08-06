@@ -15,7 +15,6 @@ const newRestaurant = {
     rating: rating,
 }
 
-console.log(`New restaurant added:\n${newRestaurant}`)
 
 const handleNewRestaurant = () => {
     fetch('https://bocacode-intranet-api.web.app/restaurants', {
@@ -26,7 +25,8 @@ const handleNewRestaurant = () => {
         },
         body: JSON.stringify(newRestaurant),
     })
-        .then(() => {
+    .then(() => {
+            console.log(`New restaurant added:\n${newRestaurant}`)
             Alert.alert('New restaurant added!')
             navigation.navigate('Home')
         })
