@@ -1,8 +1,8 @@
 import React, {useRef, useState} from 'react'
-import { View, Text, TextInput, TouchableOpacity, Keyboard } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Keyboard, Alert } from 'react-native'
 import styles from '../styles'
 
-export default function AddNew() {
+export default function AddNew({navigation}) {
 const [restaurantName, setRestaurantName] = useState('')
 const [address, setAddress] = useState('')
 const [photoUrl, setPhotoUrl] = useState('')
@@ -27,8 +27,8 @@ const handleNewRestaurant = () => {
         body: JSON.stringify(newRestaurant),
     })
         .then(() => {
-            console.log('new restaurant added')
-            submit()
+            Alert.alert('New restaurant added!')
+            navigation.navigate('Home')
         })
         .catch(err => console.error(err))
 }

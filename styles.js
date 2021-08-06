@@ -1,6 +1,13 @@
 import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
+  containerHome: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "stretch",
+    justifyContent: "center",
+    marginBottom: 30,
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",

@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View style={styles.container}>
+        <View style={styles.containerHome}>
           <>
             <TouchableOpacity
               style={styles.touchableAddNew}
@@ -33,7 +33,7 @@ export default function Home({ navigation }) {
               <Text style={styles.touchableAddNewText}>Add Restaurant</Text>
             </TouchableOpacity>
 
-            {restaurants.map((singleRestaurant) => {
+            {restaurants?.map((singleRestaurant) => {
               // console.log('single restaurant ---->', singleRestaurant)
               return (
                 <>
