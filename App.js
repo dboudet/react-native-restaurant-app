@@ -1,36 +1,34 @@
-import { StatusBar } from "expo-status-bar"
+import "react-native-gesture-handler"
 import React from "react"
-import { Text, View, ScrollView, SafeAreaView } from "react-native"
-import { useEffect, useState } from "react"
-import Box from "./components/Box"
-import styles from "./styles"
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
+
+import Home from "./screens/HomeScreen"
+import RestaurantDetails from "./screens/RestaurantDetailsScreen"
+import AddNew from "./screens/AddNewScreen"
+
+const Stack = createStackNavigator()
 
 export default function App() {
-  const [restaurants, setRestaurants] = useState([])
-
-  useEffect(() => {
-    fetch("https://bocacode-intranet-api.web.app/restaurants")
-      .then((response) => response.json())
-      .then((data) => setRestaurants(data))
-      .catch((err) => console.error(err))
-  }, [])
-  // console.log(restaurants)
 
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <View style={styles.container}>
-          <Text style={styles.header}>Recommended Restaurants</Text>
-
-          <View>
-            {restaurants?.map((restaurant) => {
-              return <Box restaurantInfo={restaurant} />
-            })}
-          </View>
-
-          <StatusBar style="auto" />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  )
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name='Home'
+          component={Home}
+          options={{title:'Recommended Restaurants'}}
+          />
+        <Stack.Screen
+          name='RestaurantDetails'
+          component={RestaurantDetails}
+          options={{title:'Restaurant Details'}}
+          />
+        <Stack.Screen
+          name='AddNewRestaurant'
+          component={AddNew}
+          options={{title:'Add New Restaurant'}}
+          />
+    </Stack.Navigator>
+        </NavigationContainer>  )
 }
